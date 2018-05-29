@@ -1,0 +1,22 @@
+package com.nudelbaron
+
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
+import io.netty.handler.codec.http.HttpHeaderDateFormat.get
+
+fun main(args: Array<String>) {
+    println("Hello, World")
+
+    embeddedServer(Netty, 12345) {
+        routing {
+           @Override
+            get("/") {
+                call.respondText("Hello, world!", ContentType.Text.Html)
+            }
+        }
+    }.start(wait = true)
+
+}
+
+
+
