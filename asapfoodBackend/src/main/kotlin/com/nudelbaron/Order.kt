@@ -7,4 +7,9 @@ class Order(val Customer: Customer, val Meal: Meal) : UuidClass()
         Customer.print()
         Meal.print()
     }
+
+    override fun toString() : String
+    {
+       return "$Customer - ${Meal.Name} : ${Meal.miscs.values.toString()}"
+    }
 }

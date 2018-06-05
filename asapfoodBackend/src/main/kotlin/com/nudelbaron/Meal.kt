@@ -12,6 +12,11 @@ class Meal(val Name: String) : UuidClass()
         miscs.values.forEach{it.print()}
     }
 
+    override fun toString() : String
+    {
+        return Name
+    }
+
     fun addMisc(_misc : String) : Boolean
     {
         return this.addMisc(Misc(_misc))
