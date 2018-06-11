@@ -10,8 +10,8 @@ class DriverFactory {
     {
         if (checkKeys(_content)&& _drivers.filter { it.Name == _content[DRIVERKEY].orEmpty()}.isEmpty()) {
             _drivers.add(Driver(_content[DRIVERKEY].orEmpty(), _content[LOCATIONKEY].orEmpty(), _content[DEADLINEKEY].orEmpty()))
-        }
 
+        }
         return _drivers
     }
 

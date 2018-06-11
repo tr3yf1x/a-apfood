@@ -1,5 +1,6 @@
 package com.nudelbaron
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.ktor.server.netty.*
 import io.ktor.routing.*
 import io.ktor.application.*
@@ -15,7 +16,7 @@ object App {
     fun main(args: Array<String>) {
         var drivers = mutableListOf<Driver>()
 
-        val PORT = 1330
+        val PORT = 12345
 
         embeddedServer(Netty, PORT) {
             routing {
@@ -37,12 +38,20 @@ object App {
                 get("/customers/{customerName}") {
                     val customerName = call.parameters?.get("customerName").toString()
                     call.respondText(
-                            DriverFactory().getCustomers(drivers, customerName).toString()
-                            , ContentType.Text.Html)
+                            ObjectMapper().writeValueAsString(
+
+                            DriverFactory().getCustomers(drivers, customerName)
+                            ) , ContentType.Application.Json)
+
                 }
                 get("/driver")
                 {
-                    call.respondText { drivers.map { it.Name }.toString() }
+                    call.respondText (
+                        ObjectMapper().writeValueAsString(
+                        drivers)
+                    , ContentType.Application.Json
+                        )
+
                 }
 
                 post("/driver")
