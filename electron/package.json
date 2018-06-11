@@ -1,0 +1,22 @@
+{
+  "name": "asapfood-desktop",
+  "version": "0.0.1",
+  "description": "A$AP-FOODIE for Desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "A$AP-FOOD",
+    "ASAPFOOD",
+    "FOOD",
+    "electron",
+    "ordering",
+    "supper"
+  ],
+  "author": "mbb",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^2.0.2"
+  }
+}
