@@ -3,28 +3,9 @@ import Button from "react-uwp/Button";
 import TextBox from "react-uwp/TextBox";
 import Icon from 'react-uwp/Icon';
 
-import AutoSuggestBox from 'react-uwp/AutoSuggestBox';
 const API = 'http://localhost:12345/order'
 
 class OrderForm extends Component {
-
-
-	getDefaultDriverName()
-	{
-		try
-		{
-			return this.props.driver.name;
-		}
-		catch(e)
-		{
-			return "";
-		}
-	}
-
-	getSuggestMeal()
-	{
-
-	}
 	handleSubmit(event)
 	{
 		event.preventDefault();
@@ -45,19 +26,17 @@ class OrderForm extends Component {
 
 	render() {
 		return (
-			<div>
-			<Icon>🥨</Icon>
-			<form onSubmit={this.handleSubmit}>
-			<TextBox placeholder="Driver" name="driver"  defaultValue={this.getDefaultDriverName() }/>
-			<TextBox placeholder="Ihr Name" name="customer" />
-			<AutoSuggestBox placeholder="Ihr Gericht"  name="meal"/>
-<br/>
-			<AutoSuggestBox placeholder="mit Scharf." name="misc" />
-<br/>
-			<Button>
-			Bestellen
-			</Button>
-			</form>
+		<div>
+		<Icon>🏎️</Icon>
+		<form onSubmit={this.handleSubmit}>
+		<TextBox placeholder="Driver" name="driver" />
+		<TextBox placeholder="Ihr Name" name="customer" />
+		<TextBox placeholder="Ihr Gericht" name="meal" />
+		<TextBox placeholder="mit Scharf, ohne Tomate" name="misc" />
+		<Button>
+		Fahrer werden!
+		</Button>
+		</form>
 			</div>
 		);
 	}

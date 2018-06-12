@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import Button from "react-uwp/Button";
+import TextBox from "react-uwp/TextBox";
+import Icon from 'react-uwp/Icon';
+
 const API = 'http://localhost:12345/driver'
 
 class DriverForm extends Component {
@@ -32,21 +36,17 @@ class DriverForm extends Component {
 	}
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
-			<label>
-			Name:
-			<input type="text" name="driverName" />
-			</label>
-			<label>
-			Lokation:
-			<input type="text" name="location" />
-			</label>
-			<label>
-			Deadline:
-			<input type="text" name="deadline" />
-			</label>
-			<input type="submit" value="Submit" />
-			</form>
+<div>
+		<Icon>🏎️</Icon>
+		<form onSubmit={this.handleSubmit}>
+		<TextBox placeholder="Name" name="driverName" />
+		<TextBox placeholder="Lokation" name="location" />
+		<TextBox placeholder="Deadline" name="deadline" />
+		<Button>
+		Fahrer werden!
+		</Button>
+		</form>
+			</div>
 		);
 	}
 }

@@ -21,7 +21,11 @@ object App {
         embeddedServer(Netty, PORT) {
             routing {
                 get("/meal/") {
-                    call.respondText(DriverFactory().getMeals(drivers).map { it.Name }.toString(), ContentType.Text.Html)
+                    call.respondText(
+                            ObjectMapper().writeValueAsString(
+                            DriverFactory().getMeals(drivers).map { it.Name }
+                            )
+                            , ContentType.Text.Html)
                 }
                 get("/meal/{mealName}") {
                     val mealName = call.parameters!!["mealName"].toString()
